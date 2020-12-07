@@ -46,7 +46,7 @@ df = pd.DataFrame()
 key = 'PATH OR ID'
 with ABConnectionManager(server='SC-AB-T01', version=12) as ab:
     results = ab.Search(key, GetFullObjects=True)
-    for result in results:
-        df = df.append(get_dicts(result))
+    details = get_dicts(results)
+    df = df.append(details)
         
 ```
