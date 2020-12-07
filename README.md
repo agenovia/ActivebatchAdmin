@@ -6,7 +6,7 @@ Scripts and libraries I use for work to administer ActiveBatch
 pip install pywin32
 ```
 
-## Usage
+## Python Usage
 
 Search example
 ```
