@@ -42,11 +42,11 @@ def get_dicts(result_set):
         _d.append(_dict)
     return _d
 
-df = pd.DataFrame()
+
 key = 'PATH OR ID'
 with ABConnectionManager(server='SC-AB-T01', version=12) as ab:
     results = ab.Search(key, GetFullObjects=True)
     details = get_dicts(results)
-    df = df.append(details)
+    df = pd.DataFrame(details)
         
 ```
