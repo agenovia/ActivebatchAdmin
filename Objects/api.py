@@ -1403,34 +1403,3 @@ class FolderLite(AllMethods, AllAttributes):
 
     def __str__(self):
         return f"{self.obj.Name}"
-
-
-if __name__ == '__main__':
-    from Handlers.connection_handler import ABConnectionManager
-    from realcoolshit import standard_logging
-
-    standard_logging.std_log()
-
-
-    def get_dicts(result_set):
-        _d = []
-        for result in result_set:
-            _dict = {'ID': result.ID,
-                     'Name': result.Name,
-                     'FullPath': result.FullPath,
-                     'ObjectType': result.ObjectType,
-                     'Enabled': result.Enabled,
-                     'Owner': result.Owner,
-                     'LastRun': result.LastInstanceExecutionDateTime,
-                     'NextRun': result.NextScheduledExecutionDateTime,
-                     'CreationDateTime': result.CreationDateTime
-                     }
-            _d.append(_dict)
-        return _d
-
-
-    _key = 4581534
-    with ABConnectionManager(server='SC-AB-T01', version=12) as con0:
-        # results = con0.Search(_key, ObjectFilter=3, GetFullObjects=True)
-        # df = pd.DataFrame(get_dicts(results))
-        con0.get_object(_key).Disable()
